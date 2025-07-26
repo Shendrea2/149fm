@@ -1,0 +1,268 @@
+/*
+ * Stil pentru noul site 149FM Radio.
+ * Folosește variabile CSS pentru a permite trecerea între tema întunecată și cea luminoasă.
+ */
+
+:root {
+  --background-light: #ffffff;
+  --text-light: #222222;
+  --accent-light: #e60073;
+  --background-dark: #0b0020;
+  --text-dark: #f5f5f5;
+  --accent-dark: #e60073;
+  --primary-font: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--primary-font);
+  line-height: 1.6;
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Când clasa "light" este activă pe body, folosim culorile luminoase */
+body.light {
+  background-color: var(--background-light);
+  color: var(--text-light);
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #330040 0%, #0b0020 100%);
+  color: var(--text-dark);
+}
+
+body.light header {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e6e6e6 100%);
+  color: var(--text-light);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.tagline {
+  margin: 0.5rem 0 1rem;
+  font-style: italic;
+}
+
+#theme-toggle {
+  background-color: var(--accent-dark);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+body.light #theme-toggle {
+  background-color: var(--accent-light);
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  margin-top: 0;
+  color: var(--accent-dark);
+}
+
+body.light section h2 {
+  color: var(--accent-light);
+}
+
+/* Player audio */
+#player-section audio {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.fallback-text a {
+  color: var(--accent-dark);
+}
+
+body.light .fallback-text a {
+  color: var(--accent-light);
+}
+
+ul.social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+ul.social-links li a {
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+body.light ul.social-links li a {
+  color: var(--accent-light);
+}
+
+/* Form elements */
+.input-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: var(--accent-dark);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+body.light button[type="submit"] {
+  background-color: var(--accent-light);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: #0b0020;
+  color: var(--text-dark);
+}
+
+body.light footer {
+  background-color: #f0f0f0;
+  color: var(--text-light);
+}
+
+/* Hosts section */
+#hosts .host-card {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+body.light #hosts .host-card {
+  background-color: #f9f9f9;
+}
+
+#hosts .host-image {
+  width: 100px;
+  height: auto;
+  border-radius: 4px;
+  margin-right: 1rem;
+}
+
+#hosts .host-info h3 {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  color: var(--accent-dark);
+}
+
+body.light #hosts .host-info h3 {
+  color: var(--accent-light);
+}
+
+#hosts .host-info p {
+  margin: 0;
+}
+
+/* Blog section */
+#blog .blog-post {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light #blog .blog-post {
+  border-bottom: 1px solid #ddd;
+}
+
+#blog .blog-post h3 {
+  margin-top: 0;
+  color: var(--accent-dark);
+}
+
+body.light #blog .blog-post h3 {
+  color: var(--accent-light);
+}
+
+#blog .post-date {
+  font-size: 0.85rem;
+  color: #888;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Events section */
+#events .events-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+#events .events-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Newsletter form */
+#newsletter form {
+  max-width: 400px;
+}
+#newsletter button[type="submit"] {
+  background-color: var(--accent-dark);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+body.light #newsletter button[type="submit"] {
+  background-color: var(--accent-light);
+}
+
+/* Support section */
+#support .donate-button {
+  display: inline-block;
+  background-color: var(--accent-dark);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+body.light #support .donate-button {
+  background-color: var(--accent-light);
+}

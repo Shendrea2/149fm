@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="149FM Radio - sunet alternativ, non-stop, pentru nopți lungi.">
+  <title>149FM Radio</title>
+  <!-- Font and stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+  <header>
+    <h1>149FM Underground Radio</h1>
+    <p class="tagline">Sunet alternativ, non-stop, pentru nopți lungi.</p>
+    <button id="theme-toggle" aria-label="Schimbă tema">Schimbă tema</button>
+  </header>
+  <main>
+    <!-- Player section -->
+    <section id="player-section">
+      <h2>Ascultă live</h2>
+      <audio id="audio-player" controls preload="none">
+        <source src="https://stream.zeno.fm/6vc4ddpr3ehvv" type="audio/mpeg">
+        Browserul tău nu suportă playerul audio HTML5.
+      </audio>
+      <p id="now-playing">Acum se difuzează: <span id="track-info">-</span></p>
+      <p class="fallback-text">Dacă playerul nu funcționează, poți <a href="https://stream.zeno.fm/6vc4ddpr3ehvv" target="_blank">asculta direct aici</a>.</p>
+    </section>
+    <!-- Schedule section -->
+    <section id="schedule">
+      <h2>Program</h2>
+      <!-- Lista programului va fi generată dinamic din fișierul schedule.json -->
+      <ul id="schedule-list"></ul>
+    </section>
+    <!-- About section -->
+    <section id="about">
+      <h2>Despre noi</h2>
+      <p>149FM Radio oferă sunet alternativ, non-stop, pentru nopți lungi. Scopul nostru este să aducem muzică de calitate și emisiuni creative, să susținem scena underground și să construim o comunitate.</p>
+    </section>
+    <!-- Social section -->
+    <section id="social">
+      <h2>Urmărește-ne</h2>
+      <ul class="social-links">
+        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+        <li><a href="https://www.instagram.com/149fm.radio/" target="_blank">Instagram</a></li>
+        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+      </ul>
+    </section>
+    <!-- Contact section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <form id="contact-form" action="#" method="POST">
+        <div class="input-group">
+          <label for="name">Numele tău</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Adresa de email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="input-group">
+          <label for="message">Mesajul tău</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Trimite</button>
+      </form>
+      <p id="form-status"></p>
+    </section>
+
+    <!-- Hosts section -->
+    <section id="hosts">
+      <h2>Echipa</h2>
+      <div class="host-card">
+        <img src="94d25f40-c964-48f0-ba7c-fda239d9de31.png" alt="DJ Siluet băiat cu microfon" class="host-image">
+        <div class="host-info">
+          <h3>DJ Radu</h3>
+          <p>Maestru al mixurilor nocturne, Radu aduce vibe-uri alternative și povești din underground. În fiecare noapte te poartă prin universuri sonore necunoscute.</p>
+        </div>
+      </div>
+      <div class="host-card">
+        <img src="b2a36527-37a3-4815-aaa8-4454e35a650f.png" alt="DJ Siluet fată la platane" class="host-image">
+        <div class="host-info">
+          <h3>DJ Ana</h3>
+          <p>Specialistă în ritmuri electronice și hip‑hop, Ana îți aduce emisiunea „Urban Spotlight” cu invitați speciali și piese fresh de descoperit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog / Noutăți section -->
+    <section id="blog">
+      <h2>Noutăți</h2>
+      <article class="blog-post">
+        <h3>Lansăm emisiunea „Urban Spotlight”</h3>
+        <span class="post-date">10 iulie 2025</span>
+        <p>Suntem entuziasmați să anunțăm o nouă emisiune dedicată scenei urbane! În fiecare miercuri de la ora 18:00, DJ Ana vă prezintă artiști emergenți și poveștile lor.</p>
+      </article>
+      <article class="blog-post">
+        <h3>Playlist de vară: vibe-uri chill și hip‑hop</h3>
+        <span class="post-date">25 iunie 2025</span>
+        <p>Am pregătit un playlist special de vară, perfect pentru nopțile călduroase. Ascultă mixurile noastre și descoperă piese relaxante și beat-uri groovy!</p>
+      </article>
+    </section>
+
+    <!-- Events section -->
+    <section id="events">
+      <h2>Evenimente</h2>
+      <ul class="events-list">
+        <li><strong>15 aug 2025</strong> – Live session cu DJ Radu la Târgu Mureș</li>
+        <li><strong>30 aug 2025</strong> – Party underground la Cluj‑Napoca</li>
+        <li><strong>12 sep 2025</strong> – Festival alternativ la București</li>
+      </ul>
+    </section>
+
+    <!-- Newsletter section -->
+    <section id="newsletter">
+      <h2>Abonează-te la newsletter</h2>
+      <p>Primește noutăți despre emisiuni, playlisturi și evenimente direct în inbox.</p>
+      <form id="newsletter-form" action="#" method="POST">
+        <div class="input-group">
+          <label for="newsletter-email">Email</label>
+          <input type="email" id="newsletter-email" name="email" required>
+        </div>
+        <button type="submit">Abonează-te</button>
+      </form>
+      <p id="newsletter-status"></p>
+    </section>
+
+    <!-- Support section -->
+    <section id="support">
+      <h2>Susține-ne</h2>
+      <p>Ajută-ne să creștem și să aducem muzică bună în continuare! Poți contribui printr-o donație.</p>
+      <a href="https://buymeacoffee.com/149fm" target="_blank" class="donate-button">Donează</a>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 149FM Radio. Toate drepturile rezervate.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
