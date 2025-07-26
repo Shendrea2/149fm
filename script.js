@@ -1,6 +1,99 @@
 // Script pentru funcționalitățile site-ului 149FM
 
 document.addEventListener('DOMContentLoaded', function() {
+  // ----- Traduceri -----
+  const translations = {
+    ro: {
+      'nav-listen': 'Ascultă',
+      'nav-schedule': 'Program',
+      'nav-about': 'Despre',
+      'nav-team': 'Echipa',
+      'nav-shows': 'Emisiuni',
+      'nav-blog': 'Noutăți',
+      'nav-events': 'Evenimente',
+      'nav-contact': 'Contact',
+      'title': '149FM Underground Radio',
+      'tagline': 'Sunet alternativ, non-stop, pentru nopți lungi.',
+      'toggle-theme': 'Schimbă tema',
+      'shows-title': 'Emisiuni',
+      'show-nocturne': 'Emisiune dedicată sunetelor ambientale și experimentale care îți vor ține companie în nopțile târzii.',
+      'show-nocturne-time': 'Oră difuzare:',
+      'show-synthwave': 'Călătorie retro cu melodii synthwave și outrun, perfectă pentru visătorii nostalgici.',
+      'show-synthwave-time': 'Oră difuzare:',
+      'show-urban': 'DJ Ana aduce invitați speciali, interviuri și piese hip‑hop emergente.',
+      'show-urban-time': 'Oră difuzare:',
+      'show-electronic': 'Mix de techno și house pentru a închide seara într-un mod energic.',
+      'show-electronic-time': 'Oră difuzare:'
+      ,
+      'listen-title': 'Ascultă live',
+      'schedule-title': 'Program',
+      'about-title': 'Despre noi',
+      'social-title': 'Urmărește-ne',
+      'contact-title': 'Contact',
+      'team-title': 'Echipa',
+      'news-title': 'Noutăți',
+      'events-title': 'Evenimente',
+      'newsletter-title': 'Abonează-te la newsletter',
+      'support-title': 'Susține-ne'
+    },
+    en: {
+      'nav-listen': 'Listen',
+      'nav-schedule': 'Schedule',
+      'nav-about': 'About',
+      'nav-team': 'Team',
+      'nav-shows': 'Shows',
+      'nav-blog': 'News',
+      'nav-events': 'Events',
+      'nav-contact': 'Contact',
+      'title': '149FM Underground Radio',
+      'tagline': 'Alternative sound, non-stop, for long nights.',
+      'toggle-theme': 'Toggle theme',
+      'shows-title': 'Shows',
+      'show-nocturne': 'A broadcast dedicated to ambient and experimental sounds that will keep you company on late nights.',
+      'show-nocturne-time': 'Air time:',
+      'show-synthwave': 'Retro journey with synthwave and outrun tunes, perfect for nostalgic dreamers.',
+      'show-synthwave-time': 'Air time:',
+      'show-urban': 'DJ Ana brings special guests, interviews and emerging hip-hop tracks.',
+      'show-urban-time': 'Air time:',
+      'show-electronic': 'A mix of techno and house to close the evening energetically.',
+      'show-electronic-time': 'Air time:'
+      ,
+      'listen-title': 'Listen live',
+      'schedule-title': 'Schedule',
+      'about-title': 'About us',
+      'social-title': 'Follow us',
+      'contact-title': 'Contact',
+      'team-title': 'Team',
+      'news-title': 'News',
+      'events-title': 'Events',
+      'newsletter-title': 'Newsletter',
+      'support-title': 'Support us'
+    }
+  };
+
+  function translatePage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+    // actualizează și atributul placeholder de la formularul de contact dacă există
+  }
+
+  const langSelect = document.getElementById('lang-select');
+  if (langSelect) {
+    // Setează limba curentă din localStorage sau default
+    const savedLang = localStorage.getItem('lang') || 'ro';
+    langSelect.value = savedLang;
+    translatePage(savedLang);
+    langSelect.addEventListener('change', (e) => {
+      const newLang = e.target.value;
+      localStorage.setItem('lang', newLang);
+      translatePage(newLang);
+    });
+  }
   const body = document.body;
   const themeToggle = document.getElementById('theme-toggle');
   const audioPlayer = document.getElementById('audio-player');

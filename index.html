@@ -11,14 +11,37 @@
 </head>
 <body class="dark">
   <header>
-    <h1>149FM Underground Radio</h1>
-    <p class="tagline">Sunet alternativ, non-stop, pentru nopți lungi.</p>
-    <button id="theme-toggle" aria-label="Schimbă tema">Schimbă tema</button>
+    <div class="top-bar">
+      <!-- Navigație principală -->
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#player-section" data-i18n="nav-listen">Ascultă</a></li>
+          <li><a href="#schedule" data-i18n="nav-schedule">Program</a></li>
+          <li><a href="#about" data-i18n="nav-about">Despre</a></li>
+          <li><a href="#hosts" data-i18n="nav-team">Echipa</a></li>
+          <li><a href="#shows" data-i18n="nav-shows">Emisiuni</a></li>
+          <li><a href="#blog" data-i18n="nav-blog">Noutăți</a></li>
+          <li><a href="#events" data-i18n="nav-events">Evenimente</a></li>
+          <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Selector de limbă -->
+      <div class="lang-switch">
+        <label for="lang-select" class="sr-only">Limba</label>
+        <select id="lang-select" aria-label="Selectează limba">
+          <option value="ro">RO</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+    </div>
+    <h1 data-i18n="title">149FM Underground Radio</h1>
+    <p class="tagline" data-i18n="tagline">Sunet alternativ, non-stop, pentru nopți lungi.</p>
+    <button id="theme-toggle" aria-label="Schimbă tema" data-i18n="toggle-theme">Schimbă tema</button>
   </header>
   <main>
     <!-- Player section -->
     <section id="player-section">
-      <h2>Ascultă live</h2>
+      <h2 data-i18n="listen-title">Ascultă live</h2>
       <audio id="audio-player" controls preload="none">
         <source src="https://stream.zeno.fm/6vc4ddpr3ehvv" type="audio/mpeg">
         Browserul tău nu suportă playerul audio HTML5.
@@ -28,18 +51,43 @@
     </section>
     <!-- Schedule section -->
     <section id="schedule">
-      <h2>Program</h2>
+      <h2 data-i18n="schedule-title">Program</h2>
       <!-- Lista programului va fi generată dinamic din fișierul schedule.json -->
       <ul id="schedule-list"></ul>
     </section>
     <!-- About section -->
     <section id="about">
-      <h2>Despre noi</h2>
+      <h2 data-i18n="about-title">Despre noi</h2>
       <p>149FM Radio oferă sunet alternativ, non-stop, pentru nopți lungi. Scopul nostru este să aducem muzică de calitate și emisiuni creative, să susținem scena underground și să construim o comunitate.</p>
+    </section>
+
+    <!-- Shows section -->
+    <section id="shows">
+      <h2 data-i18n="shows-title">Emisiuni</h2>
+      <div class="show-card">
+        <h3>Nocturne alternative</h3>
+        <p data-i18n="show-nocturne">Emisiune dedicată sunetelor ambientale și experimentale care îți vor ține companie în nopțile târzii.</p>
+        <p><strong data-i18n="show-nocturne-time">Oră difuzare:</strong> 00:00–02:00</p>
+      </div>
+      <div class="show-card">
+        <h3>Synthwave vibes</h3>
+        <p data-i18n="show-synthwave">Călătorie retro cu melodii synthwave și outrun, perfectă pentru visătorii nostalgici.</p>
+        <p><strong data-i18n="show-synthwave-time">Oră difuzare:</strong> 02:00–04:00</p>
+      </div>
+      <div class="show-card">
+        <h3>Urban Spotlight</h3>
+        <p data-i18n="show-urban">DJ Ana aduce invitați speciali, interviuri și piese hip‑hop emergente.</p>
+        <p><strong data-i18n="show-urban-time">Oră difuzare:</strong> 18:00–20:00</p>
+      </div>
+      <div class="show-card">
+        <h3>Electronic Journey</h3>
+        <p data-i18n="show-electronic">Mix de techno și house pentru a închide seara într-un mod energic.</p>
+        <p><strong data-i18n="show-electronic-time">Oră difuzare:</strong> 20:00–22:00</p>
+      </div>
     </section>
     <!-- Social section -->
     <section id="social">
-      <h2>Urmărește-ne</h2>
+      <h2 data-i18n="social-title">Urmărește-ne</h2>
       <ul class="social-links">
         <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
         <li><a href="https://www.instagram.com/149fm.radio/" target="_blank">Instagram</a></li>
@@ -48,7 +96,7 @@
     </section>
     <!-- Contact section -->
     <section id="contact">
-      <h2>Contact</h2>
+      <h2 data-i18n="contact-title">Contact</h2>
       <form id="contact-form" action="#" method="POST">
         <div class="input-group">
           <label for="name">Numele tău</label>
@@ -69,7 +117,7 @@
 
     <!-- Hosts section -->
     <section id="hosts">
-      <h2>Echipa</h2>
+      <h2 data-i18n="team-title">Echipa</h2>
       <div class="host-card">
         <img src="94d25f40-c964-48f0-ba7c-fda239d9de31.png" alt="DJ Siluet băiat cu microfon" class="host-image">
         <div class="host-info">
@@ -88,7 +136,7 @@
 
     <!-- Blog / Noutăți section -->
     <section id="blog">
-      <h2>Noutăți</h2>
+      <h2 data-i18n="news-title">Noutăți</h2>
       <article class="blog-post">
         <h3>Lansăm emisiunea „Urban Spotlight”</h3>
         <span class="post-date">10 iulie 2025</span>
@@ -103,7 +151,7 @@
 
     <!-- Events section -->
     <section id="events">
-      <h2>Evenimente</h2>
+      <h2 data-i18n="events-title">Evenimente</h2>
       <ul class="events-list">
         <li><strong>15 aug 2025</strong> – Live session cu DJ Radu la Târgu Mureș</li>
         <li><strong>30 aug 2025</strong> – Party underground la Cluj‑Napoca</li>
@@ -113,7 +161,7 @@
 
     <!-- Newsletter section -->
     <section id="newsletter">
-      <h2>Abonează-te la newsletter</h2>
+      <h2 data-i18n="newsletter-title">Abonează-te la newsletter</h2>
       <p>Primește noutăți despre emisiuni, playlisturi și evenimente direct în inbox.</p>
       <form id="newsletter-form" action="#" method="POST">
         <div class="input-group">
@@ -127,7 +175,7 @@
 
     <!-- Support section -->
     <section id="support">
-      <h2>Susține-ne</h2>
+      <h2 data-i18n="support-title">Susține-ne</h2>
       <p>Ajută-ne să creștem și să aducem muzică bună în continuare! Poți contribui printr-o donație.</p>
       <a href="https://buymeacoffee.com/149fm" target="_blank" class="donate-button">Donează</a>
     </section>
@@ -136,5 +184,18 @@
     <p>&copy; 2025 149FM Radio. Toate drepturile rezervate.</p>
   </footer>
   <script src="script.js"></script>
+
+  <!-- Tawk.to chat widget: înlocuiește "your_property_id" cu ID-ul tău -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement('script'), s0 = document.getElementsByTagName('script')[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/your_property_id/default';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
 </body>
 </html>
